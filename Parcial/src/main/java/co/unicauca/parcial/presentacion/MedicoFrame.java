@@ -23,8 +23,6 @@ public class MedicoFrame extends JFrame {
     private JButton btnListar;
     private JButton btnActualizar;
     private JButton btnEliminar;
-    private JTable tablaMedicos;
-    private DefaultTableModel tableModel;
 
     private final MedicoService medicoService;
 
@@ -32,12 +30,13 @@ public class MedicoFrame extends JFrame {
         this.medicoService = medicoService;
 
         setTitle("CRUD Médicos");
-        setSize(700, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
 
         initComponents();
         initListeners();
+        
+        pack();
+        setLocationRelativeTo(null);
     }
 
     private void initComponents() {
@@ -83,18 +82,6 @@ public class MedicoFrame extends JFrame {
         panelBotones.add(btnActualizar);
         panelBotones.add(btnEliminar);
 
-        // Tabla de resultados
-        String[] columnas = { "ID", "Nombre", "Apellido", "Tipo", "Atiende Siempre" };
-        tableModel = new DefaultTableModel(columnas, 0) {
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return false;
-            }
-        };
-        tablaMedicos = new JTable(tableModel);
-        JScrollPane scrollPane = new JScrollPane(tablaMedicos);
-        scrollPane.setBorder(BorderFactory.createTitledBorder("Lista de Médicos"));
-
         // Panel superior (formulario + botones)
         JPanel panelSuperior = new JPanel(new BorderLayout());
         panelSuperior.add(panelFormulario, BorderLayout.CENTER);
@@ -102,13 +89,12 @@ public class MedicoFrame extends JFrame {
 
         // Layout principal
         setLayout(new BorderLayout(5, 5));
-        add(panelSuperior, BorderLayout.NORTH);
-        add(scrollPane, BorderLayout.CENTER);
+        add(panelSuperior, BorderLayout.CENTER);
     }
 
     private void initListeners() {
         btnCrear.addActionListener(e -> crearMedico());
-        btnListar.addActionListener(e -> listarMedicos());
+        btnListar.addActionListener(e -> mostrarListaMedicos());
         btnActualizar.addActionListener(e -> actualizarMedico());
         btnEliminar.addActionListener(e -> eliminarMedico());
     }
@@ -129,7 +115,6 @@ public class MedicoFrame extends JFrame {
                         "Médico registrado exitosamente.",
                         "Éxito", JOptionPane.INFORMATION_MESSAGE);
                 limpiarFormulario();
-                listarMedicos();
             } else {
                 JOptionPane.showMessageDialog(this,
                         "No se pudo registrar el médico. Verifique los datos.",
@@ -142,12 +127,23 @@ public class MedicoFrame extends JFrame {
         }
     }
 
-    private void listarMedicos() {
-        tableModel.setRowCount(0);
+    private void mostrarListaMedicos() {
+        JDialog dialog = new JDialog(this, "Lista de Médicos", true);
+        dialog.setSize(600, 400);
+        dialog.setLocationRelativeTo(this);
+        
+        String[] columnas = { "ID", "Nombre", "Apellido", "Tipo", "Atiende Siempre" };
+        DefaultTableModel model = new DefaultTableModel(columnas, 0) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        JTable table = new JTable(model);
+        
         List<Medico> medicos = medicoService.listarMedicos();
-
         for (Medico m : medicos) {
-            tableModel.addRow(new Object[] {
+            model.addRow(new Object[] {
                     m.getId(),
                     m.getNombre(),
                     m.getApellido(),
@@ -155,12 +151,18 @@ public class MedicoFrame extends JFrame {
                     m.isAtiendeSiempre() ? "Sí" : "No"
             });
         }
-
+        
+        JScrollPane scrollPane = new JScrollPane(table);
+        scrollPane.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        dialog.add(scrollPane);
+        
         if (medicos.isEmpty()) {
-            JOptionPane.showMessageDialog(this,
+            JOptionPane.showMessageDialog(dialog,
                     "No hay médicos registrados.",
                     "Información", JOptionPane.INFORMATION_MESSAGE);
         }
+        
+        dialog.setVisible(true);
     }
 
     private void actualizarMedico() {
@@ -179,7 +181,6 @@ public class MedicoFrame extends JFrame {
                         "Médico actualizado exitosamente.",
                         "Éxito", JOptionPane.INFORMATION_MESSAGE);
                 limpiarFormulario();
-                listarMedicos();
             } else {
                 JOptionPane.showMessageDialog(this,
                         "No se pudo actualizar. Verifique que el ID exista.",
@@ -208,7 +209,6 @@ public class MedicoFrame extends JFrame {
                             "Médico eliminado exitosamente.",
                             "Éxito", JOptionPane.INFORMATION_MESSAGE);
                     limpiarFormulario();
-                    listarMedicos();
                 } else {
                     JOptionPane.showMessageDialog(this,
                             "No se encontró un médico con ese ID.",
