@@ -6,12 +6,8 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * Se encarga de crear las tablas de la base de datos si no existen.
- * 
- * Principio SRP: su única responsabilidad es la inicialización
- * del esquema de la base de datos.
- */
+//Se encarga de crear las tablas de la base de datos si no existen.
+
 public class DataBaseInitializer {
 
     private final DataBaseManager dbManager;

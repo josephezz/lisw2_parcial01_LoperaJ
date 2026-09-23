@@ -9,15 +9,9 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.List;
 
-/**
- * GUI Swing para el CRUD de médicos.
- * 
- * Principio SRP: solo se encarga de la presentación e interacción
- * con el usuario. Toda la lógica se delega al MedicoService.
- * 
- * Principio DIP: depende de MedicoService (que a su vez depende
- * de la abstracción IMedicoRepository), no directamente del repositorio.
- */
+// Solo se encarga de la presentación e interacción.
+// con el usuario. Toda la lógica se delega al MedicoService.
+
 public class MedicoFrame extends JFrame {
 
     private JTextField txtId;
@@ -37,7 +31,7 @@ public class MedicoFrame extends JFrame {
     public MedicoFrame(MedicoService medicoService) {
         this.medicoService = medicoService;
 
-        setTitle("CRUD Médicos — SOLID");
+        setTitle("CRUD Médicos");
         setSize(700, 500);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
@@ -90,7 +84,7 @@ public class MedicoFrame extends JFrame {
         panelBotones.add(btnEliminar);
 
         // Tabla de resultados
-        String[] columnas = {"ID", "Nombre", "Apellido", "Tipo", "Atiende Siempre"};
+        String[] columnas = { "ID", "Nombre", "Apellido", "Tipo", "Atiende Siempre" };
         tableModel = new DefaultTableModel(columnas, 0) {
             @Override
             public boolean isCellEditable(int row, int column) {
@@ -153,7 +147,7 @@ public class MedicoFrame extends JFrame {
         List<Medico> medicos = medicoService.listarMedicos();
 
         for (Medico m : medicos) {
-            tableModel.addRow(new Object[]{
+            tableModel.addRow(new Object[] {
                     m.getId(),
                     m.getNombre(),
                     m.getApellido(),

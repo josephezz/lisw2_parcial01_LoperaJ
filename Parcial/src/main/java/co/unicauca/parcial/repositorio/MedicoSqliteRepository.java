@@ -13,15 +13,8 @@ import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * Implementación concreta del repositorio de médicos usando SQLite.
- * 
- * Principio LSP: puede sustituirse por cualquier otra implementación
- * de IMedicoRepository sin alterar el comportamiento esperado.
- * 
- * Principio SRP: solo se encarga de la persistencia de datos,
- * sin lógica de negocio.
- */
+//Implementación concreta del repositorio de médicos usando SQLite.
+
 public class MedicoSqliteRepository implements IMedicoRepository {
 
     private final DataBaseManager dbManager;
@@ -73,7 +66,7 @@ public class MedicoSqliteRepository implements IMedicoRepository {
             Connection conn = dbManager.getConnection();
 
             try (PreparedStatement pstmt = conn.prepareStatement(sql);
-                 ResultSet rs = pstmt.executeQuery()) {
+                    ResultSet rs = pstmt.executeQuery()) {
 
                 while (rs.next()) {
                     Medico medico = new Medico(
@@ -81,8 +74,7 @@ public class MedicoSqliteRepository implements IMedicoRepository {
                             rs.getString("nombre"),
                             rs.getString("apellido"),
                             TipoMedico.valueOf(rs.getString("tipo")),
-                            "Sí".equalsIgnoreCase(rs.getString("atiendeSiempre"))
-                    );
+                            "Sí".equalsIgnoreCase(rs.getString("atiendeSiempre")));
                     lista.add(medico);
                 }
             }
@@ -115,8 +107,7 @@ public class MedicoSqliteRepository implements IMedicoRepository {
                                 rs.getString("nombre"),
                                 rs.getString("apellido"),
                                 TipoMedico.valueOf(rs.getString("tipo")),
-                                "Sí".equalsIgnoreCase(rs.getString("atiendeSiempre"))
-                        );
+                                "Sí".equalsIgnoreCase(rs.getString("atiendeSiempre")));
                         return Optional.of(medico);
                     }
                 }

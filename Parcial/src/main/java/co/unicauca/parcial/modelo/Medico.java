@@ -1,11 +1,6 @@
 package co.unicauca.parcial.modelo;
 
-/**
- * Entidad de dominio que representa un Médico.
- * 
- * Principio SRP: esta clase solo tiene la responsabilidad de
- * almacenar los datos del médico (POJO).
- */
+//Clase médico, solo se encarga de la lógica del médico
 public class Medico {
 
     private int id;

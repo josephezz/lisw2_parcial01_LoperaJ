@@ -6,16 +6,8 @@ import co.unicauca.parcial.repositorio.IMedicoRepository;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Servicio de lógica de negocio para médicos.
- * 
- * Principio SRP: solo contiene lógica de negocio (validaciones, reglas),
- * sin acceso directo a BD ni conocimiento de la GUI.
- * 
- * Principio DIP: depende de la abstracción IMedicoRepository,
- * no de una implementación concreta. El repositorio se inyecta
- * por constructor.
- */
+//Servicio de lógica de negocio para médicos.
+
 public class MedicoService {
 
     private final IMedicoRepository repository;
