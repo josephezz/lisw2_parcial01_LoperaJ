@@ -1,4 +1,4 @@
-package co.unicauca.parcial.repositorio;
+package co.unicauca.parcial.configuracion;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -5,7 +5,7 @@ import co.unicauca.parcial.modelo.Medico;
 import java.util.List;
 import java.util.Optional;
 
-// Contrato del repositorio de médicos.
+//Contrato del repositorio de médicos.
 
 public interface IMedicoRepository {
 

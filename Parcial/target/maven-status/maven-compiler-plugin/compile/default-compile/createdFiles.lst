@@ -1,10 +1,11 @@
-co\unicauca\parcial\repositorio\DataBaseManager.class
 co\unicauca\parcial\presentacion\MedicoFrame.class
+co\unicauca\parcial\repositorio\Factory.class
 co\unicauca\parcial\Parcial.class
 co\unicauca\parcial\modelo\Medico.class
 co\unicauca\parcial\presentacion\MedicoFrame$1.class
 co\unicauca\parcial\modelo\TipoMedico.class
-co\unicauca\parcial\repositorio\DataBaseInitializer.class
+co\unicauca\parcial\configuracion\DataBaseManager.class
 co\unicauca\parcial\repositorio\IMedicoRepository.class
 co\unicauca\parcial\repositorio\MedicoSqliteRepository.class
+co\unicauca\parcial\configuracion\DataBaseInitializer.class
 co\unicauca\parcial\servicio\MedicoService.class

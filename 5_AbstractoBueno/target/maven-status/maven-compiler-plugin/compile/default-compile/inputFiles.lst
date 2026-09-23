@@ -1,0 +1,6 @@
+/home/libardo/Descargas/PrincipiosSOLID/5_AbstractoBueno/src/main/java/co/unicauca/solid/dip/domain/main/ClientMain.java
+/home/libardo/Descargas/PrincipiosSOLID/5_AbstractoBueno/src/main/java/co/unicauca/solid/dip/domain/service/Service.java
+/home/libardo/Descargas/PrincipiosSOLID/5_AbstractoBueno/src/main/java/co/unicauca/solid/dip/domain/access/ProductRepository.java
+/home/libardo/Descargas/PrincipiosSOLID/5_AbstractoBueno/src/main/java/co/unicauca/solid/dip/domain/access/Factory.java
+/home/libardo/Descargas/PrincipiosSOLID/5_AbstractoBueno/src/main/java/co/unicauca/solid/dip/domain/Product.java
+/home/libardo/Descargas/PrincipiosSOLID/5_AbstractoBueno/src/main/java/co/unicauca/solid/dip/domain/access/IProductRepository.java

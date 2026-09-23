@@ -1,9 +1,10 @@
 C:\Users\josel\Downloads\lisw2_parcial01_LoperaJ\Parcial\src\main\java\co\unicauca\parcial\Parcial.java
 C:\Users\josel\Downloads\lisw2_parcial01_LoperaJ\Parcial\src\main\java\co\unicauca\parcial\presentacion\MedicoFrame.java
-C:\Users\josel\Downloads\lisw2_parcial01_LoperaJ\Parcial\src\main\java\co\unicauca\parcial\repositorio\DataBaseInitializer.java
 C:\Users\josel\Downloads\lisw2_parcial01_LoperaJ\Parcial\src\main\java\co\unicauca\parcial\modelo\TipoMedico.java
-C:\Users\josel\Downloads\lisw2_parcial01_LoperaJ\Parcial\src\main\java\co\unicauca\parcial\repositorio\DataBaseManager.java
+C:\Users\josel\Downloads\lisw2_parcial01_LoperaJ\Parcial\src\main\java\co\unicauca\parcial\configuracion\DataBaseInitializer.java
 C:\Users\josel\Downloads\lisw2_parcial01_LoperaJ\Parcial\src\main\java\co\unicauca\parcial\modelo\Medico.java
 C:\Users\josel\Downloads\lisw2_parcial01_LoperaJ\Parcial\src\main\java\co\unicauca\parcial\repositorio\MedicoSqliteRepository.java
 C:\Users\josel\Downloads\lisw2_parcial01_LoperaJ\Parcial\src\main\java\co\unicauca\parcial\servicio\MedicoService.java
 C:\Users\josel\Downloads\lisw2_parcial01_LoperaJ\Parcial\src\main\java\co\unicauca\parcial\repositorio\IMedicoRepository.java
+C:\Users\josel\Downloads\lisw2_parcial01_LoperaJ\Parcial\src\main\java\co\unicauca\parcial\repositorio\Factory.java
+C:\Users\josel\Downloads\lisw2_parcial01_LoperaJ\Parcial\src\main\java\co\unicauca\parcial\configuracion\DataBaseManager.java

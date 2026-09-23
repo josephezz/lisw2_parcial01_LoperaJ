@@ -2,6 +2,7 @@ package co.unicauca.parcial.repositorio;
 
 import co.unicauca.parcial.modelo.Medico;
 import co.unicauca.parcial.modelo.TipoMedico;
+import co.unicauca.parcial.configuracion.DataBaseManager;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

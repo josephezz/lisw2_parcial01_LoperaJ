@@ -19,12 +19,7 @@ public class MedicoService {
         this.repository = repository;
     }
 
-    /**
-     * Crea un nuevo médico con validaciones de negocio.
-     *
-     * @param medico el médico a crear
-     * @return true si se creó exitosamente, false en caso contrario
-     */
+    // Crea un nuevo médico con validaciones de negocio.
     public boolean crearMedico(Medico medico) {
         if (medico == null) {
             return false;
@@ -44,21 +39,12 @@ public class MedicoService {
         return repository.save(medico);
     }
 
-    /**
-     * Lista todos los médicos registrados.
-     *
-     * @return lista de médicos
-     */
+    // Lista todos los médicos registrados.
     public List<Medico> listarMedicos() {
         return repository.findAll();
     }
 
-    /**
-     * Busca un médico por su identificación.
-     *
-     * @param id la identificación del médico
-     * @return Optional con el médico encontrado, o vacío si no existe
-     */
+    // Busca un médico por su identificación
     public Optional<Medico> buscarMedico(int id) {
         if (id <= 0) {
             return Optional.empty();
@@ -66,12 +52,7 @@ public class MedicoService {
         return repository.findById(id);
     }
 
-    /**
-     * Actualiza los datos de un médico existente (tipo y atiendeSiempre).
-     *
-     * @param medico el médico con los datos actualizados
-     * @return true si se actualizó exitosamente, false en caso contrario
-     */
+    // Actualiza los datos de un médico si ya existe
     public boolean actualizarMedico(Medico medico) {
         if (medico == null) {
             return false;
@@ -88,12 +69,7 @@ public class MedicoService {
         return repository.update(medico);
     }
 
-    /**
-     * Elimina un médico por su identificación.
-     *
-     * @param id la identificación del médico a eliminar
-     * @return true si se eliminó exitosamente, false si no existe
-     */
+    // Elimina un médico por su identificación
     public boolean eliminarMedico(int id) {
         if (id <= 0) {
             return false;

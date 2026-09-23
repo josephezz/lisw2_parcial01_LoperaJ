@@ -11,14 +11,7 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * Pruebas unitarias para MedicoService.
- * 
- * Usa FakeMedicoRepository (in-memory) para aislar la lógica
- * de negocio de la base de datos.
- * 
- * Ejecutable con: mvn test
- */
+//Pruebas unitarias
 class MedicoServiceTest {
 
     private MedicoService service;
@@ -29,7 +22,7 @@ class MedicoServiceTest {
         service = new MedicoService(fakeRepo);
     }
 
-    // ---------- Crear ----------
+    // Crear
 
     @Test
     void testCrearMedicoExitosamente() {
@@ -64,7 +57,7 @@ class MedicoServiceTest {
         assertFalse(service.crearMedico(medicoNeg));
     }
 
-    // ---------- Listar ----------
+    // Listar
 
     @Test
     void testListarMedicos() {
@@ -83,7 +76,7 @@ class MedicoServiceTest {
         assertTrue(lista.isEmpty());
     }
 
-    // ---------- Actualizar ----------
+    // Actualizar
 
     @Test
     void testActualizarTipoYEstado() {
@@ -114,8 +107,7 @@ class MedicoServiceTest {
         assertFalse(service.actualizarMedico(null));
     }
 
-    // ---------- Eliminar ----------
-
+    // Eliminar
     @Test
     void testEliminarMedicoPorId() {
         service.crearMedico(new Medico(1, "Juan", "Pérez", TipoMedico.TIPO_1, true));
@@ -140,7 +132,7 @@ class MedicoServiceTest {
         assertFalse(service.eliminarMedico(-5));
     }
 
-    // ---------- Buscar ----------
+    // Buscar
 
     @Test
     void testBuscarMedicoExistente() {

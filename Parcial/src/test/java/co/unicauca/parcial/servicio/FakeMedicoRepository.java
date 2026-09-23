@@ -7,15 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-/**
- * Implementación falsa (in-memory) de IMedicoRepository para pruebas unitarias.
- * 
- * Principio LSP: sustituye a MedicoSqliteRepository en los tests
- * sin alterar el comportamiento esperado por MedicoService.
- * 
- * Principio DIP: demuestra que el servicio funciona correctamente
- * con cualquier implementación del contrato IMedicoRepository.
- */
 class FakeMedicoRepository implements IMedicoRepository {
 
     private final List<Medico> medicos = new ArrayList<>();

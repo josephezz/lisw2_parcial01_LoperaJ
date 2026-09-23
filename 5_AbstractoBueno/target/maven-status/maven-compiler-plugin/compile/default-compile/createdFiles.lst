@@ -1,0 +1,6 @@
+co/unicauca/solid/dip/domain/main/ClientMain.class
+co/unicauca/solid/dip/domain/Product.class
+co/unicauca/solid/dip/domain/access/IProductRepository.class
+co/unicauca/solid/dip/domain/service/Service.class
+co/unicauca/solid/dip/domain/access/Factory.class
+co/unicauca/solid/dip/domain/access/ProductRepository.class
